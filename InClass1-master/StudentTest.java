@@ -31,15 +31,32 @@ public class StudentTest {
 		Student secondStudent = new Student("x", "Y", 3);
 		
 		int actual = secondStudent.compareTo(firstStudent);
-		int expected = 1;
 		
-		assertEquals(expected, actual);
+		//Should be bigger than zero
+		boolean result = false;
+		if(actual >0){
+			result = true;
+		}
+		assertTrue(result);
 		
+		
+		//should be less than zero 
 		Student student = new Student("x", "Y", 5);
+		result = false;
 		
-		expected = -1;
+		
 		actual = secondStudent.compareTo(student);
-		assertEquals(expected, actual);
+		if(actual < 0)
+			result = true;
+		assertTrue(result);
+		
+		//should be the same, therfore should be 0 
+		result = false;
+		
+		Student studentsame = new Student("x", "y", 5);
+		actual = secondStudent.compareTo(studentsame);
+		int expected = 0;
+		assertEquals(expected,actual);
 
 
 		
